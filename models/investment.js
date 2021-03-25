@@ -14,7 +14,7 @@ const Investment = sequelize.define('investment', {
         allowNull: false,
     },
     quantity: {
-       type: Sequelize.NUMBER,
+       type: Sequelize.DOUBLE,
        allowNull: false
     },
     createdAt: Sequelize.TIME,
