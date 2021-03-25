@@ -12,55 +12,55 @@ const Coin = sequelize.define('coin', {
     },
     name: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
     },
 
     open: {
         type: Sequelize.DOUBLE,
-        allowNull: false
+        allowNull: true
     },
 
     close: {
         type: Sequelize.DOUBLE,
-        allowNull: false
+        allowNull: true
     },
     high: {
         type: Sequelize.DOUBLE,
-        allowNull: false
+        allowNull: true
     },
     low: {
         type: Sequelize.DOUBLE,
-        allowNull: false
+        allowNull: true
     },
 
     volume: {
         type: Sequelize.DOUBLE,
-        allowNull: false
+        allowNull: true
     },
 
     marketCap: {
         type: Sequelize.DOUBLE,
-        allowNull: false
+        allowNull: true
     },
 
     apiId: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
     },
 
     symbol: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
     },
 
     coinType: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
     },
 
     rank: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: true
     },
 
 });

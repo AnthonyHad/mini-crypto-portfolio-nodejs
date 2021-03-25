@@ -41,7 +41,7 @@ User.belongsToMany(Coin, {through: Investment});
 
 
 sequelize
-    .sync()
+    .sync({ force: true})
     .then( result => {
         console.log(result);
         app.listen(3000);

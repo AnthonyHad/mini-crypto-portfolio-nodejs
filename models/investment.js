@@ -17,7 +17,7 @@ const Investment = sequelize.define('investment', {
        type: Sequelize.DOUBLE,
        allowNull: false
     },
-    createdAt: Sequelize.TIME,
+    date: Sequelize.TIME,
 });
 
 module.exports = Investment;
