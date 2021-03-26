@@ -1,4 +1,4 @@
-const fetch = require('node-fetch');
+const fetch = require('sync-fetch');
 const Coin = require('../../models/coin');
 
 
@@ -6,16 +6,32 @@ const Coin = require('../../models/coin');
 //     Coin.findAll
 // }
 
+//change naming
 
-const getLatestOhlc = (coinId) => {
-    fetch(`https://api.coinpaprika.com/v1/coins/${coinId}/ohlcv/latest/`)
-    .then(response => response.json())
-    .then(data => {
-        obj = data;
-    })
-    .catch(err => {
-        console.log(err);
-    })
+// function sleep(x) {
+//     return function(cb) {
+//        setTimeout(cb, x)
+//     }
+//  }
+ function getLatestOhlc(coinId) {
+    // sleep(10000)
+   
+    const data = fetch(`https://api.coinpaprika.com/v1/coins/${coinId}/ohlcv/latest/`).json()
+    return data
+
+    // .then(response => {
+    //     console.log("toto1")
+    //     response.json()
+    // })
+    // .then(data => {
+    //     console.log("toto2");
+    //     obj = data;
+    // })
+    // .catch(err => {
+
+    //     console.log("totoErr")
+    //     console.log(err);
+    // })
 };  
 
 
@@ -25,14 +41,10 @@ const getLatestOhlc = (coinId) => {
     .then(coins => {
         coins.forEach(coin => {
         //    console.log(coin.apiId) 
-        let result;
-        setTimeout(function(){
-           if (getLatestOhlc(coin.apiId) != undefined) {
-                return result = getLatestOhlc(coin.apiId);
-             }
-           }, 10000);
-           console.log(result);
-    //    if (result != undefined) {
+        let result = getLatestOhlc(coin.apiId);
+        console.log("finally");
+        console.log(result);
+//    if (result != undefined) {
     //        Coin.update({
     //             open: result[0]["open"],
     //             close: result[0]["close"],
