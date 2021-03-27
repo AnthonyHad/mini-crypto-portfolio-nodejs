@@ -26,6 +26,7 @@ const Coin = require('../../models/coin');
     // .then(data => {
     //     console.log("toto2");
     //     obj = data;
+    // return data
     // })
     // .catch(err => {
 
@@ -40,23 +41,23 @@ const Coin = require('../../models/coin');
     })
     .then(coins => {
         coins.forEach(coin => {
-        //    console.log(coin.apiId) 
+        console.log(coin.apiId) 
         let result = getLatestOhlc(coin.apiId);
         console.log("finally");
         console.log(result);
-//    if (result != undefined) {
-    //        Coin.update({
-    //             open: result[0]["open"],
-    //             close: result[0]["close"],
-    //             high: result[0]["high"],
-    //             low: result[0]["low"],
-    //             volume: result[0]["volume"],
-    //             market_cap: result[0]["market_cap"] 
-    //         }, {
-    //             where: { id: coin.id}
-    //         })
-    //         // console.log(coin);
-    //      } 
+   if (result != undefined) {
+           Coin.update({
+                open: result[0]["open"],
+                close: result[0]["close"],
+                high: result[0]["high"],
+                low: result[0]["low"],
+                volume: result[0]["volume"],
+                marketCap: result[0]["market_cap"] 
+            }, {
+                where: { id: coin.id}
+            })
+            console.log(coin);
+         } 
         })
         }).catch(err => {
             console.log(err);
