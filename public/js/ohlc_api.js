@@ -2,19 +2,8 @@ const fetch = require('sync-fetch');
 const Coin = require('../../models/coin');
 
 
-// const getCoinApiId = (coin) => {
-//     Coin.findAll
-// }
-
-//change naming
-
-// function sleep(x) {
-//     return function(cb) {
-//        setTimeout(cb, x)
-//     }
-//  }
  function getLatestOhlc(coinId) {
-    // sleep(10000)
+
    
     const data = fetch(`https://api.coinpaprika.com/v1/coins/${coinId}/ohlcv/latest/`).json()
     return data

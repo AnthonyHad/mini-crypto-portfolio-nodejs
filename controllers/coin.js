@@ -1,26 +1,22 @@
 const Coin = require('../models/coin');
+const { Op } = require('sequelize');
 
 
 exports.getCoins = (req, res, next) => {
- 
-            res.render('coins', {
-                pageTitle: 'Top 10 Coins',
-                path: '/coins'
-            });
+    Coin.findAll({
+        raw:true, 
+        where: {
+            rank: {
+                [Op.between]: [1, 10]
+            }
+        }
+    })
+    .then(coins => {
+        res.render('coins', {
+            coins: coins,
+            pageTitle: 'Top 10 Coins',
+            path: '/coins'
+        });
+
+    })         
 };
-
-
-// exports.getCoins = (req, res, next) => {
-//     Coin
-//         .findAll()
-//         .then(coins => {
-//             res.render('views/coins', {
-//                 coins: coins,
-//                 pageTitle: 'Top 10 Coins',
-//                 path: '/coins'
-//             });
-//         })
-//         .catch( err => {
-//             console.log(err);
-//         })
-// };

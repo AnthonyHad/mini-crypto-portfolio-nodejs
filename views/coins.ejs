@@ -14,6 +14,19 @@
                 <h1>This is the Coin Index Page !!</h1>
             </main>
 
+            <ul>
+                <% coins.forEach( coin => { %> 
+                <li> <%= coin.name %> </li>
+                <p><%= ` Open: ${coin.open}$` %> </p>
+                <p><%= ` Close: ${coin.close}$` %> </p>
+                <p><%= ` High: ${coin.high}$` %> </p>
+                <p><%= ` Low: ${coin.low}$` %> </p>
+                <p><%= ` Volume: ${coin.volume}$` %> </p>
+                <p><%= ` Market Cap: ${coin.marketCap}$` %> </p>
+                <hr>
+                <% }); %> 
+            </ul>
+
         </body>
 
 
