@@ -3,7 +3,12 @@ const Investment = require('../models/investment');
 
 exports.getInvestments = (req, res, next) => {
     req.user
-        .getInvestments()
+        .getInvestments({
+            include: {
+                model: Coin,
+                attributes: ['name']
+            }
+        })
         .then(investments => {
             res.render('investments', {
                 investments: investments,
@@ -13,7 +18,7 @@ exports.getInvestments = (req, res, next) => {
         });
 }
 
-exports.getAddInvestments = (req , res, next) => {
+exports.getAddInvestment = (req , res, next) => {
     Coin.findAll({
         raw: true,
         attributes: ['id', 'name']
@@ -29,4 +34,24 @@ exports.getAddInvestments = (req , res, next) => {
     .catch(err => {
         console.log(err)
     })
+}
+
+exports.postAddInvestment = (req, res, next) => {
+    const coinId = req.body.name
+    const coinPrice = req.body.coinPrice
+    const quantity = req.body.quantity
+    req.user
+        .createInvestment({
+            coinId: coinId,
+            coinPrice: coinPrice,
+            quantity: quantity
+        })
+        .then(result => {
+            console.log("Investment Successfully added !")
+            res.redirect('investments')
+        })
+        .catch(err => {
+            console.log(err);
+        })
+
 }

@@ -13,7 +13,10 @@
             <main>
                 <h1>This is the User's Investment Page !!</h1>
             </main>
-            <% investments.forEach(investment => { %> 
+            <% investments.forEach(investment => { %>
+
+                <p><%= investment %> </p>
+                <p><%= investment.coinPrice %> </p> 
                 <p><%= investment.quantity %> </p>
             <% }); %> 
             <p></p>
