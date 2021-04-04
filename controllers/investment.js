@@ -69,33 +69,22 @@ exports.getEditInvestment = (req, res, next) => {
       })
       .catch(err => console.log(err));
   };
-  
-//   exports.postEditProduct = (req, res, next) => {
-//     const prodId = req.body.productId;
-//     const updatedTitle = req.body.title;
-//     const updatedPrice = req.body.price;
-//     const updatedImageUrl = req.body.imageUrl;
-//     const updatedDesc = req.body.description;
-//     Product.findByPk(prodId)
-//       .then(product => {
-//         product.title = updatedTitle;
-//         product.price = updatedPrice;
-//         product.description = updatedDesc;
-//         product.imageUrl = updatedImageUrl;
-//          return product.save()
-//       })
-//       .then(result => {
-//         console.log('UPDATED PRODUCT')
-//         res.redirect('/admin/products');
-//       } )
-//       .catch(err => console.log(err)) // thanks to the return above we can catch  errors for the both of the promises above
-    // const updatedProduct = new Product(
-    //   prodId,
-    //   updatedTitle,
-    //   updatedImageUrl,
-    //   updatedDesc,
-    //   updatedPrice
-    // );
-    // updatedProduct.save();
-    // res.redirect('/admin/products'); if we leave this here we wont see the updates directly due to the async JS 
-//   };
+
+exports.postEditInvestment = (req, res, next) => {
+    const invId = req.body.investmentId
+    const coinId = req.body.name
+    const updatedPrice = req.body.coinPrice
+    const updatedQuantity = req.body.quantity
+    Investment.findByPk(invId)
+      .then(investment => {
+          investment.coinId = coinId;
+          investment.coinPrice = updatedPrice;
+          investment.quantity = updatedQuantity;
+          return investment.save()
+      })
+      .then(result => {
+          console.log('Updated the investment')
+          res.redirect('/investments')
+      })
+      .catch(err => console.log(err))
+}

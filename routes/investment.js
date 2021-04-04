@@ -17,5 +17,6 @@ router.post('/new-investment', investmentController.postAddInvestment);
 
 //Editing an Investment Routes
 router.get('/edit-investment/:investmentId', investmentController.getEditInvestment);
+router.post('/edit-investment/:investmentId', investmentController.postEditInvestment);
 
 module.exports = router;

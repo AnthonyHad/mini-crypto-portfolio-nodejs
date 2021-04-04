@@ -16,23 +16,21 @@
                         
                         <label for="coin">Coin</label>
                         <select id="name" name="name">
-                            
                             <option value="<%= investment.coin.id %>" ><%= investment.coin.name %> </option>
-                
                         </select>
                         
                     </div>
                     <div class="form-control">
                         <label for="price">Price Bought At</label>
-                        <input type="text" name="coinPrice" id="coinPrice" value="<%= investment.coinPrice %> ">
+                        <input type="text" name="coinPrice" id="coinPrice" value="<%= investment.coinPrice %>">
                     </div>
                     <div class="form-control">
                         <label for="quantity">Quantity</label>
-                        <input type="number" name="quantity" id="quantity" step="0.01" value="<%= investment.quantity %> ">
+                        <input type="number" name="quantity" id="quantity" step="0.01" value="<%= investment.quantity %>">
                     </div>
                        <input type="hidden" value="<%=investment.id %>" name="investmentId">
         
-                    <button class="btn" type="submit">Add investment</button>
+                    <button class="btn" type="submit">Edit investment</button>
                 </form>
             </main>
         </body>
