@@ -3,6 +3,22 @@ const Investment = require('../../models/investment');
 const User = require('../../models/user');
 const { Op } = require('sequelize');
 
+
+ Investment.findAll()
+    .then(investments => {
+        investments.forEach(investment => {
+            console.log(investment)
+        })
+    })
+
+
+// User.findByPk(1)
+// .then(user => user.getInvestments())
+// .then(investments => console.log(investments))
+// .catch(err => console.log(err))
+// // .then(investments => console.log(investments));
+
+
 // Coin.findAll({
 //     raw: true,
 //     where: {
@@ -36,9 +52,3 @@ const { Op } = require('sequelize');
     
     
 // })
-
-User.findByPk(1)
-.then(user => user.getInvestments())
-.then(investments => console.log(investments))
-.catch(err => console.log(err))
-// .then(investments => console.log(investments));

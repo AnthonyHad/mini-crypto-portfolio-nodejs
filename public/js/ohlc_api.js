@@ -3,25 +3,8 @@ const Coin = require('../../models/coin');
 
 
  function getLatestOhlc(coinId) {
-
-   
     const data = fetch(`https://api.coinpaprika.com/v1/coins/${coinId}/ohlcv/latest/`).json()
     return data
-
-    // .then(response => {
-    //     console.log("toto1")
-    //     response.json()
-    // })
-    // .then(data => {
-    //     console.log("toto2");
-    //     obj = data;
-    // return data
-    // })
-    // .catch(err => {
-
-    //     console.log("totoErr")
-    //     console.log(err);
-    // })
 };  
 
 
@@ -32,8 +15,6 @@ const Coin = require('../../models/coin');
         coins.forEach(coin => {
         console.log(coin.apiId) 
         let result = getLatestOhlc(coin.apiId);
-        console.log("finally");
-        console.log(result);
    if (result != undefined) {
            Coin.update({
                 open: result[0]["open"],

@@ -17,7 +17,23 @@ const Investment = sequelize.define('investment', {
        type: Sequelize.DOUBLE,
        allowNull: false
     },
-    date: Sequelize.TIME,
+    coinId: {
+        allowNull: true,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'coins',
+          key: 'id'
+        }
+    },
+    userId: {
+        allowNull: true,
+        type: Sequelize.INTEGER,
+        references: {
+            model: 'users',
+            key: 'id'
+        }
+    },
+    date: Sequelize.TIME
 });
 
 module.exports = Investment;

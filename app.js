@@ -43,11 +43,12 @@ app.use(investmentRoutes);
 
 
 //Associations
-Coin.hasMany(Investment);  //optional true?
-Investment.belongsTo(Coin);
+// Coin.hasMany(Investment);
+Coin.hasMany(Investment);
 User.hasMany(Investment);
 Investment.belongsTo(User);
-User.belongsToMany(Coin, {through: Investment});
+Investment.belongsTo(Coin);
+// User.belongsToMany(Coin, {through: Investment});
 
 
 
