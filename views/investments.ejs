@@ -12,10 +12,11 @@
         <body>
             <main>
                 <h1>This is the User's Investment Page !!</h1>
+                <a href="/new-investment"> Add an Investment</a>
             </main>
             <% investments.forEach(investment => { %>
 
-                <p><%= investment %> </p>
+                <p><%= investment.coin.name %> </p>
                 <p><%= investment.coinPrice %> </p> 
                 <p><%= investment.quantity %> </p>
             <% }); %> 

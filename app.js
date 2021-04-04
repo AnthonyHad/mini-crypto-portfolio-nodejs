@@ -43,7 +43,6 @@ app.use(investmentRoutes);
 
 
 //Associations
-// Coin.hasMany(Investment);
 Coin.hasMany(Investment);
 User.hasMany(Investment);
 Investment.belongsTo(User);

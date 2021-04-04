@@ -3,7 +3,7 @@ const Investment = require('../models/investment');
 
 exports.getInvestments = (req, res, next) => {
     req.user
-        .getInvestments()
+        .getInvestments({include: ["coin"]})
         .then(investments => {
             res.render('investments', {
                 investments: investments,
