@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title><%= pageTitle %></title>
+        <!-- <link rel="stylesheet" href="/css/coins.css"> -->
+    </head> 
+
+        <body>
+            <main>
+                <form class="investment-form" action="edit-investment" method="POST">
+                    <div class="form-control">
+                        
+                        <label for="coin">Coin</label>
+                        <select id="name" name="name">
+                            
+                            <option value="<%= investment.coin.id %>" ><%= investment.coin.name %> </option>
+                
+                        </select>
+                        
+                    </div>
+                    <div class="form-control">
+                        <label for="price">Price Bought At</label>
+                        <input type="text" name="coinPrice" id="coinPrice" value="<%= investment.coinPrice %> ">
+                    </div>
+                    <div class="form-control">
+                        <label for="quantity">Quantity</label>
+                        <input type="number" name="quantity" id="quantity" step="0.01" value="<%= investment.quantity %> ">
+                    </div>
+                       <input type="hidden" value="<%=investment.id %>" name="investmentId">
+        
+                    <button class="btn" type="submit">Add investment</button>
+                </form>
+            </main>
+        </body>
+
+
+</html>
