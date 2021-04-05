@@ -88,3 +88,15 @@ exports.postEditInvestment = (req, res, next) => {
       })
       .catch(err => console.log(err))
 }
+
+
+exports.postDeleteInvestment = (req, res, next) => {
+    const invId = req.body.investmentId;
+    Investment.findByPk(invId)
+        .then(investment => {
+            return investment.destroy()
+        }).then( result => {
+            console.log("Deleted Investment")
+            res.redirect('/investments')
+        }).catch(err => console.log(err))
+}

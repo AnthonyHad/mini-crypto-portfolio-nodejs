@@ -20,6 +20,10 @@
                 <p><%= investment.coinPrice %> </p> 
                 <p><%= investment.quantity %> </p>
                 <a href="/edit-investment/<%= investment.id %> "> Edit</a>
+                <form action="/delete-investment" method="POST">
+                    <input type="hidden" value="<%= investment.id %>" name="investmentId">
+                    <button class="btn" type="submit">Delete</button>
+                </form>
             <% }); %> 
             <p></p>
         </body>

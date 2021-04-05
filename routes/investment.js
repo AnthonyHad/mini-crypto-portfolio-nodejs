@@ -19,4 +19,7 @@ router.post('/new-investment', investmentController.postAddInvestment);
 router.get('/edit-investment/:investmentId', investmentController.getEditInvestment);
 router.post('/edit-investment/:investmentId', investmentController.postEditInvestment);
 
+//Deleting an investment
+router.post('/delete-investment', investmentController.postDeleteInvestment);
+
 module.exports = router;
