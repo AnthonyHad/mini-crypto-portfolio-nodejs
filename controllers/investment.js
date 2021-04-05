@@ -5,7 +5,9 @@ exports.getInvestments = (req, res, next) => {
     req.user
         .getInvestments({include: ["coin"]})
         .then(investments => {
+            sNames = investmentAggregation(investments)
             res.render('investments', {
+                names: sNames,
                 investments: investments,
                 pageTitle: 'Your Investments',
                 path: '/investments'
@@ -100,3 +102,51 @@ exports.postDeleteInvestment = (req, res, next) => {
             res.redirect('/investments')
         }).catch(err => console.log(err))
 }
+
+
+
+const zip = (a, b) => a.map((k, i) => [k, b[i]]);
+const mapMultiplication = (a) => {
+    let j = 0;
+    let k = 1;
+    sum = 0;
+    for(i = 0 ; i< a.length ; i++) {
+        sum += a[i][j] * a[i][k]
+
+    }
+    return sum
+}
+
+investmentAggregation = (investments) => {
+    coinNames = [];
+    userInvestments = {};
+    investments.forEach(investment => {
+        coinNames.push(investment.coin.name)
+    });
+    singularNames = [... new Set(coinNames)];
+    singularNames.forEach(name => {
+        userInvestments[name] = {}
+    })
+   
+    for (const [key, value] of Object.entries(userInvestments)) {
+        value.price = [];
+        value.quantity = [];
+        value.investmentId = [];
+        investments.forEach(investment => {
+            if(investment.coin.name === key) {
+                value.investmentId.push(investment.id)
+                value.price.push(investment.coinPrice)
+                value.quantity.push(investment.quantity)
+                value.closingPrice = investment.coin.close
+                value.symbol = investment.coin.symbol
+                value.totalInvested = mapMultiplication(zip(value.price, value.quantity))
+                value.coinId = investment.coin.id
+            }
+        })
+
+    }
+    // console.log(userInvestments);
+   return userInvestments
+};
+
+

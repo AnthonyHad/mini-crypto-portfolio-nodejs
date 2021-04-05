@@ -7,15 +7,15 @@ const investmentController = require('../controllers/investment');
 const router = express.Router();
 
 
-// Displaying Investments Route
+// Displaying Investments 
 router.get('/investments', investmentController.getInvestments);
 
-// Adding an Investment Routes
+// Adding an Investment 
 router.get('/new-investment', investmentController.getAddInvestment);
 router.post('/new-investment', investmentController.postAddInvestment);
 
 
-//Editing an Investment Routes
+//Editing an Investment 
 router.get('/edit-investment/:investmentId', investmentController.getEditInvestment);
 router.post('/edit-investment/:investmentId', investmentController.postEditInvestment);
 
