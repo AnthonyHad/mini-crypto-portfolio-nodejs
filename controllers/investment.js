@@ -5,9 +5,9 @@ exports.getInvestments = (req, res, next) => {
     req.user
         .getInvestments({include: ["coin"]})
         .then(investments => {
-            sNames = investmentAggregation(investments)
+            userInvestments = investmentAggregation(investments)
             res.render('investments', {
-                names: sNames,
+                names: userInvestments,
                 investments: investments,
                 pageTitle: 'Your Investments',
                 path: '/investments'
@@ -148,5 +148,3 @@ investmentAggregation = (investments) => {
     // console.log(userInvestments);
    return userInvestments
 };
-
-
