@@ -26,7 +26,7 @@ req.user
         res.render('show-investments', {
             investments: investments,
             pageTitle: 'Transactions',
-            path: '/investments'
+            path: '/investments-show'
         })
     .catch(err => {
         console.log(err)
@@ -121,7 +121,7 @@ exports.postDeleteInvestment = (req, res, next) => {
             return investment.destroy()
         }).then( result => {
             console.log("Deleted Investment")
-            res.redirect('/investments')
+            res.redirect('/investments-show')
         }).catch(err => console.log(err))
 }
 

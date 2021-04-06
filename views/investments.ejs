@@ -45,7 +45,7 @@
                       <% dollarGains = (totalQuantityOwned * (value.closingPrice - averagePriceBoughtAt)) %>
                       <td><%=  profitPercentage > 1 ? `+${Math.abs(profitPercentage) * 100}` : `-${Math.abs(profitPercentage)}` %></td>
                       <td><%=  profitPercentage > 1 ? `🚀  ${Math.abs(dollarGains)}`  : `😭  ${Math.abs(dollarGains)}` %></td>
-                      <td><a href= "/investments/<%= value.coinId %>" > View</a> %></td>
+                      <td><a href= "/investments-show/<%= value.coinId %>" > View</a> %></td>
                     </tr>
                    <% }; %>
                  </tbody>
@@ -54,23 +54,8 @@
                 <div class="note d-flex mr-2 mt-4 flex-row justify-content-end ">
                     <h6> PS: Happy HODL'ING 😉 </h6>
                   </div>
-               </div>
-               
-
-                
+               </div> 
             </main>
-            <% investments.forEach(investment => { %>
-
-                <p><%= investment.coin.name %> </p>
-                <p><%= investment.coinPrice %> </p> 
-                <p><%= investment.quantity %> </p>
-                <a href="/edit-investment/<%= investment.id %> "> Edit</a>
-                <form action="/delete-investment" method="POST">
-                    <input type="hidden" value="<%= investment.id %>" name="investmentId">
-                    <button class="btn" type="submit">Delete</button>
-                </form>
-            <% }); %> 
-            <p></p>
         </div>
         </body>
 
