@@ -38,18 +38,25 @@
                       <% totalQuantityOwned = value.quantity.reduce((a,b) => a+b)  %>
                       <% averagePriceBoughtAt = value.totalInvested / totalQuantityOwned %>
                       <td class="closing-price"><%= value.closingPrice %></td>
-                      <td><%= value.totalInvested %></td>
+                      <td><%= `${value.totalInvested}$` %></td>
                       <td><%= totalQuantityOwned %></td>
                       <td class="bought-price"><%= averagePriceBoughtAt%></td>
                       <% profitPercentage = ((value.closingPrice / averagePriceBoughtAt)) %>
                       <% dollarGains = (totalQuantityOwned * (value.closingPrice - averagePriceBoughtAt)) %>
                       <td><%=  profitPercentage > 1 ? `+${Math.abs(profitPercentage) * 100}` : `-${Math.abs(profitPercentage)}` %></td>
                       <td><%=  profitPercentage > 1 ? `🚀  ${Math.abs(dollarGains)}`  : `😭  ${Math.abs(dollarGains)}` %></td>
+                      <td><a href= "/investments/<%= value.coinId %>" > View</a> %></td>
                     </tr>
                    <% }; %>
                  </tbody>
                 </table>
                 </div>
+                <div class="note d-flex mr-2 mt-4 flex-row justify-content-end ">
+                    <h6> PS: Happy HODL'ING 😉 </h6>
+                  </div>
+               </div>
+               
+
                 
             </main>
             <% investments.forEach(investment => { %>

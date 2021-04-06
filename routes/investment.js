@@ -22,4 +22,7 @@ router.post('/edit-investment/:investmentId', investmentController.postEditInves
 //Deleting an investment
 router.post('/delete-investment', investmentController.postDeleteInvestment);
 
+//Showing different transactions for same investment
+router.get('/investments/:coinId', investmentController.getShowInvestments);
+
 module.exports = router;

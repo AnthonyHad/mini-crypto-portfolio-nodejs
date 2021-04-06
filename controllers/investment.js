@@ -12,7 +12,27 @@ exports.getInvestments = (req, res, next) => {
                 pageTitle: 'Your Investments',
                 path: '/investments'
             })
-        });
+        })
+        .catch(err => {
+            console.log(err)
+        })
+}
+
+exports.getShowInvestments = (req, res, next) => {
+const coinId = req.params.coinId
+req.user
+    .getInvestments({include: ["coin"], where: {coinId: coinId}})
+    .then(investments => {
+        res.render('show-investments', {
+            investments: investments,
+            pageTitle: 'Transactions',
+            path: '/investments'
+        })
+    .catch(err => {
+        console.log(err)
+        })
+    })
+
 }
 
 exports.getAddInvestment = (req , res, next) => {
@@ -69,7 +89,9 @@ exports.getEditInvestment = (req, res, next) => {
           investment: investment
         });
       })
-      .catch(err => console.log(err));
+      .catch(err => {
+          console.log(err)
+        })
   };
 
 exports.postEditInvestment = (req, res, next) => {
