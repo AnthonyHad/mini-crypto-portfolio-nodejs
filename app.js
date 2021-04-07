@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const sequelize = require('./util/database');
 
 
+
 //Models 
 
 const Coin = require('./models/coin');
@@ -27,6 +28,7 @@ const investmentRoutes = require('./routes/investment');
 
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(express.static(path.join(__dirname,'public')));
+
 
 app.use((req, res, next) => { 
     User.findByPk(1)
