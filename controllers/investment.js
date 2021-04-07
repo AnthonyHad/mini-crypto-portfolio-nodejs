@@ -10,7 +10,6 @@ exports.getInvestments = (req, res, next) => {
                 names: userInvestments,
                 investments: investments,
                 pageTitle: 'Your Investments',
-                formatter: formatter,
                 path: '/investments'
             })
         })

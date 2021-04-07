@@ -1,0 +1,79 @@
+
+
+h3 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    color: #ECECEC;
+    font-size: 20px;
+  }
+  
+  
+  th {
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    color: #ECECEC;
+    font-size: 18px;
+  }
+  
+  
+  .crypto-asset-name {
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    color: #ECECEC;
+    font-size: 20px;
+  }
+  
+  
+  td {
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    color: #ECECEC;
+    font-size: 14px;
+  }
+  
+  
+  .cards-border-invest {
+    border-color: #30475E;
+    border-radius: 8px;
+    border-style: solid;
+    padding: 16px;
+  }
+  
+  
+  .table th, .table td {
+      border-top: none;
+  }
+  
+  
+  .icon {
+    color: #F2A365;
+    font-size: 16px;
+  }
+  
+  
+  .note h6 {
+    color: #30475E;
+    font-family: "Raleway", sans-serif;
+    font-size:  12px;
+  }
+  
+  
+  .no-invest {
+    color: #F2A365;
+    font-size: 22px;
+    margin-top: 50px;
+    font-family: "Raleway", sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  
+  .closing-price {
+    color: #F2A365;
+  }
+  
+  .bought-price {
+    color: #F2A365;
+  }
+  
+  body {
+    background-color: #222831; }

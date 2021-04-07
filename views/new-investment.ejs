@@ -1,38 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title><%= pageTitle %></title>
-        <!-- <link rel="stylesheet" href="/css/coins.css"> -->
+<%- include('../views/includes/head.ejs') %>
+<link rel="stylesheet" href="css/editInvestment.css">
     </head> 
 
         <body>
             <main>
-                <form class="investment-form" action="new-investment" method="POST">
-                    <div class="form-control">
-                        
-                        <label for="coin">Coin</label>
-                        <select id="name" name="name">
-                            <% coins.forEach(coin => { %> 
-                            <option value="<%= coin.id %>" ><%= coin.name %> </option>
-                            <% }); %> 
-                        </select>
-                        
+                <form class="investment-form container mt-3 d-flex justify-content-center" action="new-investment" method="POST">
+                    <div class="row form-container-add d-flex align-items-center justify-content-center">
+                    <div class="col-8 new-form-add">
+                        <div class="form-control mb-4">
+                            
+                            <label for="coin">Coin</label>
+                            <select id="name" name="name">
+                                <% coins.forEach(coin => { %> 
+                                <option value="<%= coin.id %>" ><%= coin.name %> </option>
+                                <% }); %> 
+                            </select>
+                            
+                        </div>
+                        <div class="form-control mb-4">
+                            <label for="price">Price Bought At</label>
+                            <input type="text" name="coinPrice" id="coinPrice" value="">
+                        </div>
+                        <div class="form-control mb-4">
+                            <label for="quantity">Quantity</label>
+                            <input type="number" name="quantity" id="quantity" step="0.01" value="">
+                        </div>
+                        <button class="btn-main" type="submit">Add investment</button>
                     </div>
-                    <div class="form-control">
-                        <label for="price">Price Bought At</label>
-                        <input type="text" name="coinPrice" id="coinPrice" value="">
-                    </div>
-                    <div class="form-control">
-                        <label for="quantity">Quantity</label>
-                        <input type="number" name="quantity" id="quantity" step="0.01" value="">
-                    </div>
-        
-                    <button class="btn" type="submit">Add investment</button>
+                </div>
                 </form>
+                    
             </main>
         </body>
 
