@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Raleway:wght@400;600;700;800&display=swap");
+.card {
+  background-color: #30475E;
+  border-radius: 8px;
+  width: 350px;
+  height: 213px; }
+  .card:hover {
+    transform: scale(1.1);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6); }
+
+.card h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  color: #ECECEC;
+  font-size: 20px; }
+
+.card h2 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  color: #ECECEC;
+  font-size: 20px; }
+
+.stats-title {
+  font-family: "Raleway", sans-serif;
+  font-weight: 800px;
+  color: #F2A365;
+  font-size: 12px; }
+
+.stats {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600px;
+  color: #ECECEC;
+  font-size: 10px; }
+
+.card-main {
+  margin-top: 10px; }
+
+.btn-main {
+  border-style: solid;
+  border-color: transparent;
+  border-radius: 4px;
+  background-color: #F2A365;
+  color: #ECECEC;
+  text-decoration: none;
+  padding: 2px; }
+  .btn-main:hover {
+    text-decoration: none;
+    color: #30475E; }
+
+.logos {
+  height: 80px;
+  padding: 10px; }
+
+body {
+  background-color: #222831; }

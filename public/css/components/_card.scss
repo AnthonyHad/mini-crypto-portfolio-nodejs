@@ -1,0 +1,49 @@
+
+.card {
+    background-color: $main-blue;
+    border-radius: 8px;
+    width: 350px;
+    height: 213px;
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
+    }
+  }
+  
+  
+  .card h1 {
+    font-family: $montserrat;
+    font-weight: bold;
+    color: $text-white;
+    font-size: 20px;
+  }
+  
+  .card h2 {
+    font-family: $montserrat;
+    font-weight: bold;
+    color: $text-white;
+    font-size: 20px;
+  }
+  
+  
+  .stats-title {
+    font-family: $raleway;
+    font-weight: 800px;
+    color: $secondary-orange;
+    font-size: 12px;
+  }
+  
+  .stats {
+    font-family: $montserrat;
+    font-weight: 600px;
+    color: $text-white;
+    font-size: 10px;
+  }
+  
+  
+  .card-main {
+    margin-top: 10px;
+  }
+  
+  
+  
