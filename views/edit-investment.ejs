@@ -1,27 +1,31 @@
 <%- include('../views/includes/head.ejs') %>
-<link rel="stylesheet" href="css/editInvestment.css">
-    </head> 
+<link rel="stylesheet" href="../public/css/editInvestment.css">
+</head> 
 
         <body>
             <main>
-                <form class="investment-form" action="edit-investment" method="POST">
-                    <div class="form-control">
+                <form class="investment-form container mt-3 d-flex justify-content-center" action="edit-investment" method="POST">
+                    <div class="row form-container-add d-flex align-items-center justify-content-center">
+                    <div class="col-8 new-form-add ">
+                    <div class="form-control mb-4">
                         <label for="coin">Coin</label>
                         <select id="name" name="name">
                             <option value="<%= investment.coin.id %>" ><%= investment.coin.name %> </option>
                         </select>
                     </div>
-                    <div class="form-control">
+                    <div class="form-control mb-4">
                         <label for="price">Price Bought At</label>
                         <input type="text" name="coinPrice" id="coinPrice" value="<%= investment.coinPrice %>">
                     </div>
-                    <div class="form-control">
+                    <div class="form-control mb-4">
                         <label for="quantity">Quantity</label>
                         <input type="number" name="quantity" id="quantity" step="0.01" value="<%= investment.quantity %>">
                     </div>
                        <input type="hidden" value="<%=investment.id %>" name="investmentId">
         
-                    <button class="btn" type="submit">Edit investment</button>
+                    <button class="btn-main" type="submit">Edit investment</button>
+                    </div>
+                    </div>
                 </form>
             </main>
         </body>

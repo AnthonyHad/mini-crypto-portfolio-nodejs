@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Raleway:wght@400;600;700;800&display=swap");
 
 
 h3 {
@@ -77,3 +79,15 @@ h3 {
   
   body {
     background-color: #222831; }
+
+    .btn-main {
+      border-style: solid;
+      border-color: transparent;
+      border-radius: 4px;
+      background-color: #F2A365;
+      color: #ECECEC;
+      text-decoration: none;
+      padding: 2px; }
+      .btn-main:hover {
+        text-decoration: none;
+        color: #30475E; }
