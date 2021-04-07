@@ -1,4 +1,5 @@
 <%- include('../views/includes/head.ejs') %>
+  <link rel="stylesheet" href="css/coins.css">
 </head>
 
     </head> 
@@ -9,7 +10,7 @@
             <div class="col-lg-12">
                 <div class="title d-flex mr-2 mt-4 flex-row justify-content-between">
                 <h1 class="floating">Are we mooning today?🚀</h1>
-                <a href="investments">+Your Investments</a>
+                <a href="investments" class="btn-inv">+Your Investments</a>
               </div>
               <div class="cards-border row m-2 d-flex justify-content-center">
                 <% coins.forEach(coin => {%>
@@ -39,28 +40,28 @@
                         <% } else if (coin.name === "THETA") { %> 
                           <img src="../images/theta-logo.png" alt="Theta" class="logos">
                         <% } %> 
-                        <h2> <%=coin.close%> </h2>
+                        <h2> <%=new Intl.NumberFormat('en-US', {style: 'currency',currency: 'USD',minimumFractionDigits: 2}).format(coin.close)%> </h2>
                     </div>
                     <div class="card-market d-flex justify-content-center align-items-center justify-content-around">
                       <div class="numbers d-flex flex-column align-items-center">
                         <p class="stats-title">Open</p>
-                        <p class="stats"> <%=coin.open%> </p>
+                        <p class="stats"> <%=new Intl.NumberFormat('en-US', {style: 'currency',currency: 'USD',minimumFractionDigits: 2}).format(coin.open)%> </p>
                       </div>
                       <div class="numbers d-flex flex-column align-items-center">
                         <p class="stats-title">High</p>
-                        <p class="stats"><%=coin.high%></p>
+                        <p class="stats"><%=new Intl.NumberFormat('en-US', {style: 'currency',currency: 'USD',minimumFractionDigits: 2}).format(coin.high)%></p>
                       </div>
                       <div class="numbers d-flex flex-column align-items-center">
                         <p class="stats-title">Low</p>
-                        <p class="stats"><%=coin.low%></p>
+                        <p class="stats"><%=new Intl.NumberFormat('en-US', {style: 'currency',currency: 'USD',minimumFractionDigits: 2}).format(coin.low)%></p>
                       </div>
                       <div class="numbers d-flex flex-column align-items-center">
                         <p class="stats-title">Volume</p>
-                        <p class="stats"><%=coin.volume%></p>
+                        <p class="stats"><%=new Intl.NumberFormat('en-US', {style: 'currency',currency: 'USD',minimumFractionDigits: 2}).format(coin.volume)%></p>
                       </div>
                       <div class="numbers d-flex flex-column align-items-center">
                         <p class="stats-title">Market Cap</p>
-                        <p class="stats"><%=coin.marketCap%></p>
+                        <p class="stats"><%=new Intl.NumberFormat('en-US', {style: 'currency',currency: 'USD',minimumFractionDigits: 2}).format(coin.marketCap)%></p>
                       </div>
                     </div>
                   </div>
