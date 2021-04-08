@@ -5,8 +5,11 @@
         <body>
         <div class="col-lg-12">
             <main>
+                <div class= "d-flex mr-2 mt-4 flex-row justify-content-start">
+                    <a href="/coins" class="closing-price">Back</a>
+                </div>
                 <div class= "d-flex mr-2 mt-4 flex-row justify-content-end">
-                    <a href="/new-investment" class="btn-main"> Add an Investment</a>
+                    <a href="/new-investment" class="btn-main"> +Add an Investment</a>
                 </div>
                 <h3>Your Crypto Assets 🪙</h3>
                 <div class="cards-border">
@@ -37,7 +40,7 @@
                       <% dollarGains = (totalQuantityOwned * (value.closingPrice - averagePriceBoughtAt)) %>
                       <td><%=  profitPercentage > 1 ? `+${new Intl.NumberFormat({style: 'percent', minimumFractionDigits: 1}).format(Math.abs(profitPercentage) * 100)}%` : `-${new Intl.NumberFormat({style: 'percent', minimumFractionDigits: 1}).format(Math.abs(profitPercentage))}%` %></td>
                       <td><%=  profitPercentage > 1 ? `${new Intl.NumberFormat('en-US', {style: 'currency',currency: 'USD',minimumFractionDigits: 2}).format(Math.abs(dollarGains))} 🚀`  : `${new Intl.NumberFormat('en-US', {style: 'currency',currency: 'USD',minimumFractionDigits: 2}).format(Math.abs(dollarGains))} 😭` %></td>
-                      <td><a href= "/investments-show/<%= value.coinId %>" > View</a> %></td>
+                      <td><a href= "/investments-show/<%= value.coinId %>" class="closing-price" >View</a> %></td>
                     </tr>
                    <% }; %>
                  </tbody>
@@ -46,6 +49,7 @@
                 <div class="note d-flex mr-2 mt-4 flex-row justify-content-end ">
                     <h6> PS: Happy HODL'ING 😉 </h6>
                   </div>
+                 
                </div> 
             </main>
         </div>
