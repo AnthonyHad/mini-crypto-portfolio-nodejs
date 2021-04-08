@@ -62,7 +62,7 @@ exports.postAddInvestment = (req, res, next) => {
         .createInvestment({
             coinId: coinId,
             coinPrice: coinPrice,
-            quantity: quantity
+            quantity: quantity,
         })
         .then(result => {
             console.log("Investment Successfully added !")
@@ -128,6 +128,9 @@ exports.postDeleteInvestment = (req, res, next) => {
 
 
 
+
+// Helper Functions
+
 const zip = (a, b) => a.map((k, i) => [k, b[i]]);
 const mapMultiplication = (a) => {
     let j = 0;
@@ -173,3 +176,27 @@ investmentAggregation = (investments) => {
 };
 
 
+function getLatestOhlc(coinApiId) {
+    const data = fetch(`https://api.coinpaprika.com/v1/coins/${coinApiId}/ohlcv/latest/`).json()
+    return data
+};  
+
+
+
+function updateCoinData(investment) {
+    let result = getLatestOhlc(investment.coin.apiId);
+    if (result != undefined) {
+        Coin.update({
+            open: result[0]["open"],
+            close: result[0]["close"],
+            high: result[0]["high"],
+            low: result[0]["low"],
+            volume: result[0]["volume"],
+            marketCap: result[0]["market_cap"] 
+        }, {
+            where: { id: coin.id}
+        })
+    }
+}
+    
+  
