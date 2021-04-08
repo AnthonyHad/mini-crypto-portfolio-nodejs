@@ -10,6 +10,7 @@ const router = express.Router();
 
 //coin index (top 10)
 router.get('/coins', coinController.getCoins);
+router.get('/', coinController.getCoins);
 
 
 module.exports = router;

@@ -91,3 +91,13 @@ h3 {
       .btn-main:hover {
         text-decoration: none;
         color: #30475E; }
+
+    .show {
+      width: 50%;
+      color: black;
+    }
+
+    .delete {
+      background-color: #222831;
+      border: none;
+    }

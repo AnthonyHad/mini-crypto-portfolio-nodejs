@@ -1,6 +1,7 @@
 const Coin = require('../models/coin');
 const Investment = require('../models/investment');
 
+
 exports.getInvestments = (req, res, next) => {
     req.user
         .getInvestments({include: ["coin"]})
@@ -121,7 +122,7 @@ exports.postDeleteInvestment = (req, res, next) => {
             return investment.destroy()
         }).then( result => {
             console.log("Deleted Investment")
-            res.redirect('/investments-show')
+            res.redirect('/investments')
         }).catch(err => console.log(err))
 }
 
